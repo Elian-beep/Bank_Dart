@@ -18,10 +18,8 @@ void main() {
 
  // Fazendo transferência
  bool result = bankController.makeTransfer(
-     idSender: "Kako", idReceiver: "Ricarth", amount: 700);
+     idSender: "Kako", idReceiver: "Ricarth", amount: 50);
 
  // Observando resultado
  print(result);
-
- //AINDA EM COMIÇÃO
 }
