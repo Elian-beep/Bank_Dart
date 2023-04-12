@@ -5,14 +5,30 @@ import 'exceptions/bank_controller-exceptions.dart';
 import 'models/account.dart';
 
 void testingNullSafety(){
-  Account? myAccount;
+  Account? myAccount = Account(name: "Elian", balance: 200, isAuthenticated: true);
 
   //Simulando uma comunicação externa
   Random rng = Random();
   int randomNumber = rng.nextInt(10);
   if (randomNumber <= 5) {
-    myAccount = Account(name: "Elian", balance: 200, isAuthenticated: true);
+    myAccount.createdAt = DateTime.now();
   }
+
+  //TESTE FORÇADO QUE NÃO FUNCIONA
+  // print(myAccount.balance);
+  // print(myAccount!.balance);
+  // SAFE CALL
+  // print(myAccount?.balance);
+  // if (myAccount != null) {
+  //   print(myAccount.balance);
+  // }else{
+  //   print("Conta nula");
+  // }
+
+  print(myAccount != null ? myAccount.balance : "Conta nula");
+  print(myAccount.createdAt);
+  // print(myAccount.createdAt!.day);
+  print(myAccount.createdAt != null ? myAccount.createdAt!.day : "Conta não foi finalizada!");
 }
 
 void main() {
